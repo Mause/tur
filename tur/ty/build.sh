@@ -11,7 +11,11 @@ TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_AUTO_UPDATE=true
 
 termux_step_post_get_source() {
-	TERMUX_PKG_SRCDIR+="/crates/ty"
+	TERMUX_PKG_SRCDIR+="ruff/crates/ty"
+
+	local file="$TERMUX_PKG_CACHEDIR/$(basename "${TERMUX_PKG_SRCURL}")"
+	mkdir -p "$TERMUX_PKG_SRCDIR"
+	tar xf "$file" -C "$TERMUX_PKG_SRCDIR" --strip-components=0
 }
 
 termux_step_pre_configure() {
