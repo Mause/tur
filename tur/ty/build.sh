@@ -16,7 +16,7 @@ termux_step_post_get_source() {
 
 termux_step_pre_configure() {
 	termux_setup_rust
-	termux_setup_python
+	termux_setup_python_pip
 
 	# Dummy CMake toolchain file to workaround build error:
 	# error: failed to run custom build command for `libz-ng-sys v1.1.15`
